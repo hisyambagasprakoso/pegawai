@@ -1,0 +1,17 @@
+<!-- src/main/resources/web/form.zul -->
+<zk>
+    <window title="Employee Form" border="normal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.example.pegawai.vm.EmployeeFormViewModel')">
+        <hbox>
+            <vbox>
+                <label value="First Name:" />
+                <textbox value="@bind(vm.pegawai.name)" />
+            </vbox>
+            <vbox>
+                <label value="NIK:" />
+                <textbox value="@bind(vm.pegawai.nik)" />
+            </vbox>
+        </hbox>
+        <button label="Save" onClick="@command('saveEmployee')" />
+        <button label="Cancel" onClick="@command('cancel')" />
+    </window>
+</zk>

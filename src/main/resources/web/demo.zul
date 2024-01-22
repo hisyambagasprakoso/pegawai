@@ -1,0 +1,33 @@
+<window title="Search" width="600px" border="normal" apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vm') @init('com.example.pegawai.vm.PegawaiViewModel')">
+    <listbox height="160px" model="@bind(vm.selectedPegawai)" emptyMessage="No pegawai found in the result"
+    selectedItem="@bind(vm.selectedPegawai)" style="margin-top:10px">
+        <listhead>
+            <listheader label="NIK" />
+            <listheader label="Name" />
+            <listheader label="Email" width="20%"/>
+        </listhead>
+        <template name="model">
+            <listitem>
+                <listcell label="@bind(each.nik)"></listcell>
+                <listcell label="@bind(each.name)"></listcell>
+                <listcell label="@bind(each.email)"></listcell>
+            </listitem>
+        </template>
+    </listbox>
+    <hbox style="margin-top:20px" visible="@bind(not empty vm.selectedPegawai)">
+        <image src="@bind(vm.selectedPegawai.preview)" style="padding:10px" />
+        <vbox>
+            <hlayout>
+                Model : <label value="@bind(vm.selectedPegawai.nik)" style="font-weight:bold"/>
+            </hlayout>
+            <hlayout>
+                Make : <label value="@bind(vm.selectedPegawai.name)" style="font-weight:bold"/>
+            </hlayout>
+            <hlayout>
+                Price : 
+                <span><label value="@bind(vm.selectedPegawai.email)" style="font-weight:bold"/></span>
+            </hlayout>
+        </vbox>
+    </hbox>
+</window>

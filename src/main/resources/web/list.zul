@@ -1,0 +1,26 @@
+<!-- src/main/resources/web/list.zul -->
+<zk>
+    <window title="Employee List" border="normal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.example.pegawai.vm.EmployeeListViewModel')">
+        <listbox model="@load(vm.pegawai)" selectedItem="@bind(vm.selectedPegawai)" id="pegawaiList" width="80%" height="400px">
+            <listhead>
+                <listheader label="ID" />
+                <listheader label="Name" />
+                <listheader label="NIK" />
+                <listheader label="Email" />
+                <listheader label="Alamat" />
+                <listheader label="Telpon" />
+            </listhead>
+            <template name="model" var="pegawai">
+                <listitem>
+                    <listcell label="@load(pegawai.id)" />
+                    <listcell label="@load(pegawai.name)" />
+                    <listcell label="@load(pegawai.nik)" />
+                    <listcell label="@load(pegawai.email)" />
+                    <listcell label="@load(pegawai.address)" />
+                    <listcell label="@load(pegawai.telp)" />
+                </listitem>
+            </template>
+        </listbox>
+        <button label="Add Employee" onClick="@command('showEmployeeForm')" />
+    </window>
+</zk>
